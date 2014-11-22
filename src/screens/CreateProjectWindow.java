@@ -9,12 +9,12 @@ package screens;
  *
  * @author dsindhusha
  */
-public class InternalFrame extends javax.swing.JInternalFrame {
+public class CreateProjectWindow extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form InternalFrame
      */
-    public InternalFrame() {
+    public CreateProjectWindow() {
         initComponents();
     }
 
