@@ -1,9 +1,15 @@
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package screens;
+
 
 /**
  *
@@ -58,6 +64,11 @@ public class CreateProjectWindow extends javax.swing.JInternalFrame {
         jTextField4.setText("jTextField4");
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,6 +121,37 @@ public class CreateProjectWindow extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         try
+         {
+             PrintWriter writer=new PrintWriter(new FileWriter("C:\\Users\\dsindhusha\\Documents\\cs251adatastore\\project.txt",true));
+             BufferedWriter bw1=new BufferedWriter(writer);
+             jTextField1.write(bw1);
+              bw1.write(" ");
+             jTextField2.write(bw1);
+              bw1.write(" ");
+             jTextField3.write(bw1);
+              bw1.write(" ");
+             jTextField4.write(bw1);
+              bw1.newLine();
+            
+             bw1.close();
+             jTextField1.setText("");
+             jTextField1.requestFocus();
+             jTextField2.setText("");
+             jTextField2.requestFocus();
+             jTextField3.setText("");
+             jTextField3.requestFocus();
+             jTextField4.setText("");
+             jTextField4.requestFocus();
+         }
+         catch(Exception e)
+         {
+             JOptionPane.showMessageDialog(null,e);
+             
+         }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -122,4 +164,5 @@ public class CreateProjectWindow extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
+
 }
