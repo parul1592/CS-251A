@@ -1,4 +1,16 @@
+package model;
+
+import view.AddResourceMenuItem;
+import view.TaskController;
 import java.awt.Container;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import view.Project;
+import view.ResourceList;
+import view.TaskList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,6 +28,10 @@ public class MainWindow extends javax.swing.JDialog {
     public MainWindow(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    MainWindow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   
@@ -50,7 +66,7 @@ public class MainWindow extends javax.swing.JDialog {
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
+            .addGap(0, 362, Short.MAX_VALUE)
         );
 
         jMenu3.setText("File");
@@ -114,9 +130,19 @@ public class MainWindow extends javax.swing.JDialog {
         jMenu2.setText("Edit Item");
 
         jMenuItem4.setText("Edit Resource");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Edit Task");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenu4.add(jMenu2);
@@ -151,7 +177,7 @@ public class MainWindow extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        CreateProjectWindow f=new CreateProjectWindow();
+        Project f=new Project();
         f.setVisible(true);
         jDesktopPane2.add(f);
         setContentPane(jDesktopPane2);
@@ -166,7 +192,7 @@ public class MainWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        AddTaskMenuItem ad=new AddTaskMenuItem();
+        TaskController ad=new TaskController();
         ad.setVisible(true);
         jDesktopPane2.add(ad);
         setContentPane(jDesktopPane2);
@@ -186,6 +212,20 @@ public class MainWindow extends javax.swing.JDialog {
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
       
     }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        ResourceList r1=new ResourceList();
+        r1.setVisible(true);
+        jDesktopPane2.add(r1);
+        setContentPane(jDesktopPane2);      
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        TaskList t=new TaskList();
+        t.setVisible(true);
+        jDesktopPane2.add(t);
+        setContentPane(jDesktopPane2);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
